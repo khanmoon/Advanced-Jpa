@@ -20,9 +20,14 @@ public class CourseRepository {
     }
 
 
-//    public Course save(Course course){
-//
-//    }
+    public Course save(Course course){
+        if(course.getId()==null) {
+            entityManager.persist(course);
+        }else{
+            entityManager.merge(course);
+        }
+        return course;
+    }
 
     public void deleteById(long id){
         Course course = findById(id);

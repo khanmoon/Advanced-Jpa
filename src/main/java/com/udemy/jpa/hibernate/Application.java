@@ -1,6 +1,7 @@
 package com.udemy.jpa.hibernate;
 
 import com.udemy.jpa.hibernate.Repository.CourseRepository;
+import com.udemy.jpa.hibernate.entity.Course;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,10 @@ public class Application implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
 //        courseRepository.deleteById(10001L);
-        log.info("Course Found {}",courseRepository.findById(10001l));
+        log.info("Course Found {}",courseRepository.findById(10001L));
+        courseRepository.save(new Course("MicroService in Hundred Steps"));
+
     }
 }
