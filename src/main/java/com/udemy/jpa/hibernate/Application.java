@@ -20,6 +20,6 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        log.info("Couse Found {}",courseRepository.findById(10001l));
+        log.info("Course Found {}",courseRepository.findById(10001l));
     }
 }
