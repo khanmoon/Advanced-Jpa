@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -23,7 +24,12 @@ class CourseRepositoryTest {
         Course course = courseRepository.findById(10001L);
         assertEquals(course.getName(),"Jpa in 20 minutes");
     }
-//    @Test
-//    void findById() {
-//    }
+
+
+    @Test
+    @DirtiesContext   //after the test spring would reset the data.
+    void deleteById() {
+        courseRepository.deleteById(10001L);
+        assertNull(courseRepository.findById(10001L));
+    }
 }

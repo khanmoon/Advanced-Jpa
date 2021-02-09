@@ -20,7 +20,7 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        courseRepository.deleteById(10001L);
+//        courseRepository.deleteById(10001L);
         log.info("Course Found {}",courseRepository.findById(10001l));
     }
 }
