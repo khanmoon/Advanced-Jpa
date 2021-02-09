@@ -17,13 +17,14 @@ public class CourseRepository {
         return entityManager.find(Course.class,id);
     }
 
-/*
-    public Course save(Course course){
 
-    }
+//    public Course save(Course course){
+//
+//    }
 
     public void deleteById(long id){
-
+        Course course = findById(id);
+        entityManager.remove(course);
     }
-*/
+
 }
