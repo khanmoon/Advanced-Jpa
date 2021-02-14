@@ -7,6 +7,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 
@@ -24,6 +25,7 @@ class StudentRepositoryTest {
     EntityManager em;
 
     @Test
+    @Transactional
     public void retriveStudentAndPassport(){
         Student student = studentRepository.findById(20001L);
         log.info("Student->{}",student.getName());
