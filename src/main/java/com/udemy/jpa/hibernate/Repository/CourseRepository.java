@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 @Repository
 @Transactional
@@ -32,6 +34,11 @@ public class CourseRepository {
     public void deleteById(long id){
         Course course = findById(id);
         entityManager.remove(course);
+    }
+
+    public List<Course> namedAll(){
+        TypedQuery<Course> g = entityManager.createNamedQuery("test",Course.class);
+        return g.getResultList();
     }
 
 }

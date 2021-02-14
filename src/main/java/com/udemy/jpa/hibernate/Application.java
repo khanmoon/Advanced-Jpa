@@ -22,8 +22,8 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) {
 //        courseRepository.deleteById(10001L);
-        log.info("Course Found {}",courseRepository.findById(10001L));
-        courseRepository.save(new Course("MicroService in Hundred Steps"));
+        log.info("Course Found {}",courseRepository.namedAll());
+//        courseRepository.save(new Course("MicroService in Hundred Steps"));
 
     }
 }
