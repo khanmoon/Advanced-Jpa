@@ -1,6 +1,7 @@
 package com.udemy.jpa.hibernate;
 
 import com.udemy.jpa.hibernate.Repository.CourseRepository;
+import com.udemy.jpa.hibernate.Repository.StudentRepository;
 import com.udemy.jpa.hibernate.entity.Course;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -14,6 +15,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application implements CommandLineRunner {
     @Autowired
     CourseRepository courseRepository;
+    @Autowired
+    StudentRepository studentRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -22,8 +25,8 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) {
 //        courseRepository.deleteById(10001L);
-        log.info("Course Found {}",courseRepository.namedAll());
+//        log.info("Course Found {}",courseRepository.namedAll());
 //        courseRepository.save(new Course("MicroService in Hundred Steps"));
-
+        studentRepository.saveStudentWithPassport();
     }
 }

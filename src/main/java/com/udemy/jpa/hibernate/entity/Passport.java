@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @Data
 public class Passport {
 
-    Passport(String number){
+    public Passport(String passport_number){
         this.passport_number = passport_number;
     }
     @Id

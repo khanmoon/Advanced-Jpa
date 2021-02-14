@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Data
 public class Student {
 
-    Student(String name){
+    public Student(String name){
         this.name = name;
     }
 
