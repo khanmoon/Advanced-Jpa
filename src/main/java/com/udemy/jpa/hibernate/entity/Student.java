@@ -2,6 +2,7 @@ package com.udemy.jpa.hibernate.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 
@@ -21,7 +22,7 @@ public class Student {
     @Column(nullable = false)
     private String name;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private Passport passport;
 
 }

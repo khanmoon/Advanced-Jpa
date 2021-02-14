@@ -25,6 +25,10 @@ class StudentRepositoryTest {
 
     @Test
     public void retriveStudentAndPassport(){
+        Student student = studentRepository.findById(20001L);
+        log.info("Student->{}",student.getName());
+        log.info("Passport->{}",student.getPassport());
+
 
     }
 }
