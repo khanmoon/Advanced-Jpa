@@ -1,5 +1,6 @@
 package com.udemy.jpa.hibernate.Repository;
 
+import com.udemy.jpa.hibernate.entity.Course;
 import com.udemy.jpa.hibernate.entity.Passport;
 import com.udemy.jpa.hibernate.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,4 +55,11 @@ public class StudentRepository {
         return student;
     }
 
+    public void insertStudentCourse(long l, long l1) {
+
+        Student student = entityManager.find(Student.class,l);
+        Course course = entityManager.find(Course.class,l1);
+        student.addCourses(course);
+
+    }
 }

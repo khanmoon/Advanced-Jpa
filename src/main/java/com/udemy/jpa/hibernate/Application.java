@@ -4,12 +4,15 @@ import com.udemy.jpa.hibernate.Repository.CourseRepository;
 import com.udemy.jpa.hibernate.Repository.StudentRepository;
 import com.udemy.jpa.hibernate.entity.Course;
 import com.udemy.jpa.hibernate.entity.Review;
+import com.udemy.jpa.hibernate.entity.Student;
+import com.udemy.jpa.hibernate.entity.Test;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 
@@ -35,8 +38,15 @@ public class Application implements CommandLineRunner {
 //        courseRepository.save(new Course("MicroService in Hundred Steps"));
 //        studentRepository.saveStudentWithPassport();
 //        courseRepository.addReviews();
-        Review course = em.find(Review.class,31L);
-        log.info("Reviews are -> {}", course.getDescription());
+        Review review = em.find(Review.class,31L);
+        log.info("Reviews are -> {}", review.getRating());
+
+        studentRepository.insertStudentCourse(20001L,10003L);
+
+//        Student cc = em.find(Student.class,20001L);
+//        log.info("Course -> {}", cc);
+//        log.info("test {}",review.toString());
+
     }
 
 }
