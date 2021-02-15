@@ -27,6 +27,6 @@ public class Application implements CommandLineRunner {
 //        courseRepository.deleteById(10001L);
 //        log.info("Course Found {}",courseRepository.namedAll());
 //        courseRepository.save(new Course("MicroService in Hundred Steps"));
-        studentRepository.saveStudentWithPassport();
+//        studentRepository.saveStudentWithPassport();
     }
 }
