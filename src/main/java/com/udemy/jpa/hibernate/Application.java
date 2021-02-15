@@ -15,6 +15,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 @SpringBootApplication
 @Slf4j
@@ -38,11 +42,15 @@ public class Application implements CommandLineRunner {
 //        courseRepository.save(new Course("MicroService in Hundred Steps"));
 //        studentRepository.saveStudentWithPassport();
 //        courseRepository.addReviews();
-        Review review = em.find(Review.class,31L);
-        log.info("Reviews are -> {}", review.getRating());
-
-        studentRepository.insertStudentCourse(20001L,10003L);
-
+//        Review review = em.find(Review.class,31L);
+//        log.info("Reviews are -> {}", review.getRating());
+//
+//        studentRepository.insertStudentCourse(20001L,10003L);
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Course> cq = cb.createQuery(Course.class);
+        Root<Course> courseRoot = cq.from(Course.class);
+        TypedQuery<Course> typedQuery = em.createQuery(cq.select(courseRoot));
+        log.info("Typed Query -> {}",typedQuery.getResultList().get(0).getName());
 //        Student cc = em.find(Student.class,20001L);
 //        log.info("Course -> {}", cc);
 //        log.info("test {}",review.toString());
