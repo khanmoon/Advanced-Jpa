@@ -16,7 +16,7 @@ public class Review {
     @GeneratedValue
     private Long id;
 
-    @ManyToOne()
+    @ManyToOne
     private Course course;
 
     public Review(String rating, String description){
