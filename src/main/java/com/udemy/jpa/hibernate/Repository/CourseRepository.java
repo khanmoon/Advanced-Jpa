@@ -1,6 +1,8 @@
 package com.udemy.jpa.hibernate.Repository;
 
 import com.udemy.jpa.hibernate.entity.Course;
+import com.udemy.jpa.hibernate.entity.Review;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +13,7 @@ import java.util.List;
 
 @Repository
 @Transactional
+@Slf4j
 public class CourseRepository {
 
     @Autowired
@@ -41,4 +44,12 @@ public class CourseRepository {
         return g.getResultList();
     }
 
+    public void addReviews() {
+        Course course = entityManager.find(Course.class,10001L);
+        Review review = new Review("3","best course");
+        entityManager.persist(review);
+//        course.addReview(review);
+        review.setCourse(course);
+//        entityManager.merge(course);
+    }
 }

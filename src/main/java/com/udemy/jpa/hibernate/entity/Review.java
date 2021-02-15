@@ -3,9 +3,7 @@ package com.udemy.jpa.hibernate.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -18,7 +16,10 @@ public class Review {
     @GeneratedValue
     private Long id;
 
-    Review(String rating, String description){
+    @ManyToOne()
+    private Course course;
+
+    public Review(String rating, String description){
         this.rating = rating;
         this.description = description;
     }
